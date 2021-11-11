@@ -2,7 +2,8 @@
   "name": "vuepress-plugin-use-pages",
   "version": "0.0.1",
   "description": "Vue Press 2 plugin - use pages",
-  "main": "lib/index.js",
+  "main": "lib/node/index.js",
+  "types": "lib/node/index.d.ts",
   "files": [
     "lib"
   ],

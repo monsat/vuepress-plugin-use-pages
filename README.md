@@ -104,6 +104,19 @@ temp file name
 
 default: `pages.js`
 
+## Multiple
+
+This plugin is usable for multiple times.
+
+```ts:docs/.vuepress/config.ts
+  plugins: [
+    ['vuepress-plugin-use-pages', { startsWith: '/articles/', file: 'articles.js' }],
+    ['vuepress-plugin-use-pages', { startsWith: '/posts/', file: 'posts.js' }],
+    ['vuepress-plugin-use-pages', { startsWith: '/pages/', file: 'pages.js' }],
+  ],
+```
+
+
 ## Reference
 
 - [VuePress](https://v2.vuepress.vuejs.org/)

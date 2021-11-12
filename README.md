@@ -49,7 +49,7 @@ export default defineComponent({
       v-for="page in pages"
       :key="page.key"
     >
-      <a :href="page.path">{{ page.title }}</a>
+      <RouterLink :to="page.path">{{ page.title }}</RouterLink>
       <span v-if="page.frontmatter.date">
         [ {{ (new Date(page.frontmatter.date)).toLocaleString() }} ]
       </span>

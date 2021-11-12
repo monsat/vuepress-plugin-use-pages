@@ -63,10 +63,11 @@ export default defineComponent({
 ```ts:docs/.vuepress/config.ts
   plugins: [
     ['vuepress-plugin-use-pages', {
-      startsWith: '/posts/',                  // fetch only matched paths
-      filter: (page) => page.lang === 'ja',   // fetch only filtered pages
-      limit: 30,                              // maximum cached size
-      file: 'articles.js',                    // temp file name
+      startsWith: '/articles/',                   // fetch only matched paths
+      filter: (page) => page.data.lang === 'ja',  // fetch only filtered pages
+      sort: (a, b) => b.data.git.updatedTime - a.data.git.updatedTime
+      limit: 30,                                  // maximum cached size
+      file: 'articles.js',                        // temp file name
     }],
   ],
 ```
@@ -80,6 +81,16 @@ default: `/articles/`
 ### filter
 
 Additional filter function.
+
+type: `(page: Page) => boolean`
+
+### sort
+
+Sort function.
+
+type: `(a: Page, b: Page) => number`
+
+default: `data.frontmatter.date` desc
 
 ### limit
 

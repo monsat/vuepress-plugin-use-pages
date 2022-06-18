@@ -1,4 +1,4 @@
-import type { Plugin, PluginObject, Page } from '@vuepress/core'
+import type { Page, PluginObject } from '@vuepress/core'
 
 export interface UsePagesPluginOptions {
   startsWith?: string
@@ -8,11 +8,11 @@ export interface UsePagesPluginOptions {
   file?: string
 }
 
-const usePagesPlugin: Plugin = (options, app): PluginObject => {
+export const usePagesPlugin = (options: UsePagesPluginOptions): PluginObject => {
   const name = 'vuepress-plugin-use-pages'
   const multiple = true
 
-  const onInitialized = () => {
+  const onPrepared: PluginObject['onPrepared'] = (app) => {
     const defaultSort = (a: Page, b: Page) => {
       if (!a.data.frontmatter.date || !b.data.frontmatter.date) {
         return 0
@@ -39,7 +39,7 @@ const usePagesPlugin: Plugin = (options, app): PluginObject => {
   return {
     name,
     multiple,
-    onInitialized,
+    onPrepared,
   }
 }
 

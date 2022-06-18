@@ -8,7 +8,7 @@ export interface UsePagesPluginOptions {
   file?: string
 }
 
-export const usePagesPlugin = (options: UsePagesPluginOptions): PluginObject => {
+export const usePagesPlugin = (options?: UsePagesPluginOptions): PluginObject => {
   const name = 'vuepress-plugin-use-pages'
   const multiple = true
 
